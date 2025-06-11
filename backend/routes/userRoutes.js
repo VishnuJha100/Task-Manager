@@ -1,5 +1,5 @@
 import express from 'express'
-import { adminOnly, protect } from '../middlewares/uploadMiddleware.js'
+import { adminOnly, protect } from '../middlewares/authMiddleware.js'
 import { getUsers, getUserById } from '../controllers/userControllers.js'
 
 const router = express.Router()
