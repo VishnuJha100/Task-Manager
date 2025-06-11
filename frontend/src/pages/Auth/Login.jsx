@@ -38,7 +38,7 @@ const Login = () => {
         email,
         password
       })
-      const { token, role } = res.data
+      const { token, role } = response.data
 
       if(token){
         localStorage.setItem("token", token)

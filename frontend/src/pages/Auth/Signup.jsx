@@ -1,9 +1,14 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import AuthLayout from '../../components/layouts/AuthLayout'
 import { validateEmail } from '../../utils/helper'
 import ProfilePhotoSelector from '../../components/inputs/ProfilePhotoSelector'
 import Input from '../../components/inputs/Input'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
+import axiosInstance from '../../utils/axiosInstance.js'
+import { API_PATH } from '../../utils/apiPaths.js'
+import {UserContext} from '../../context/UserContext.jsx'
+import uploadImage from '../../utils/uploadImage.js'
+
 
 const Signup = () => {
 
@@ -15,9 +20,14 @@ const Signup = () => {
 
   const [error, setError] = useState(null)
 
+  const {updateUser} = useContext(UserContext)
+  const navigate = useNavigate()
+
   // Handle SignUp form submit
     const handleSignUp = async (e) => {
       e.preventDefault()
+
+      let profileImageUrl = ''
 
       if(!fullName) {
         setError("Please enter full name.")
@@ -36,7 +46,38 @@ const Signup = () => {
   
       setError("")
   
-      
+      try {
+
+        if(profilePic){
+          const imgUploadRes = await uploadImage(profilePic)
+          profileImageUrl = imgUploadRes.imageUrl || ""
+        }
+
+        const response = await axiosInstance.post(API_PATH.AUTH.REGISTER, {
+          name: fullName,
+          email,
+          password,
+          adminInviteToken
+        })
+
+        const { token, role } = response.data
+
+        if(token){
+          localStorage.setItem("token", token)
+          updateUser(response.data)
+          if(role === "admin"){
+            navigate("/admin/dashboard")
+          } else {
+            navigate("/user/dashboard")
+          }
+        }
+      } catch (error) {
+        if(error.response && error.response.data.message){
+          setError(error.response.data.message)
+        } else {
+          setError("Something went wrong. Please try again")
+        }
+      }
     }
 
   return (
@@ -51,7 +92,7 @@ const Signup = () => {
             <Input value={fullName} onChange={({ target }) => setFullName(target.value) } label="Full Name" placeholder="John" type="text" />
             <Input value={email} onChange={({ target }) => setEmail(target.value) } label="Email Address" placeholder="john@example.com" type="email" />
             <Input value={password} onChange={({ target }) => setPassword(target.value) } label="Password" placeholder="Min 8 Characters" type="password" />
-            <Input value={fullName} onChange={({ target }) => setPassword(target.value) } label="Admin Invite Token" placeholder="6 Digit Code" type="text" />
+            <Input value={adminInviteToken} onChange={({ target }) => setAdminInviteToken(target.value) } label="Admin Invite Token" placeholder="6 Digit Code" type="text" />
           </div>
           {error && <p className='text-red-500 text-xs pb-2.5'>{error}</p>}
           <button type='submit' className='btn-primary'>SIGN UP</button>
