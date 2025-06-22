@@ -8,7 +8,7 @@ const axiosInstance = axios.create({
         "Content-Type": "application/json",
         Accept: "application/json"
     }
-})
+});
 
 // Request Interceptor
 axiosInstance.interceptors.request.use(
@@ -22,12 +22,12 @@ axiosInstance.interceptors.request.use(
     (error) => {
         return Promise.reject(error)
     }
-)
+);
 
-// Request Interceptor
-axiosInstance.interceptors.request.use(
+// Response Interceptor
+axiosInstance.interceptors.response.use(
     (response) => {
-        return response
+        return response; 
     },
     (error) => {
         // Handle common errors globally

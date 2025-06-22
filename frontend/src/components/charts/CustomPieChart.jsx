@@ -3,7 +3,7 @@ import {
     PieChart,
     Pie,
     Cell,
-    ToolTip,
+    Tooltip,
     ResponsiveContainer,
     Legend
 } from "recharts"
@@ -19,7 +19,7 @@ const CustomPieChart = ({data, colors}) => {
                 <Cell key={`cell-${index}`} fill={colors[index % colors.length]} />
             ))}
         </Pie>
-        <ToolTip content={<CustomTooltip />} />
+        <Tooltip content={<CustomTooltip />} />
         <Legend content={<CustomLegend />} />
       </PieChart>
     </ResponsiveContainer>

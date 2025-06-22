@@ -2,7 +2,7 @@ import Task from '../models/Task.js'
 import User from '../models/User.js'
 
 // @desc    get all users
-// @route   GET /api/users/
+// @route   GET /api/users/ 
 // @access  Private(admin)
 const getUsers = async (req, res) => {
     try {

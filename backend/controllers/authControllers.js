@@ -4,7 +4,7 @@ import jwt from 'jsonwebtoken'
 import User from '../models/User.js'
 
 const generateToken = (userId) => {
-    return jwt.sign({ id: userId }, process.env.JWT_SECRET, { expiresIn: '7d' })
+    return jwt.sign({ id: userId }, process.env.JWT_SECRET, { expiresIn: "7d" })
 }
 
 // @desc    register a new user
@@ -114,7 +114,7 @@ const updateUserProfile = async(req, res) => {
             user.password = await bcrypt.hash(req.body.password, salt)
         }
 
-        const updatedUser = await User.save()
+        const updatedUser = await user.save()
 
         res.json({
             _id: updatedUser._id,
