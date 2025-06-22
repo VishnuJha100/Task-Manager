@@ -309,6 +309,9 @@ const getDashboardData = async (req, res) => {
 // @access  Private
 const getUserDashboardData = async (req, res) => {
   try {
+
+    const userId = req.user._id
+
     const totalTasks = await Task.countDocuments({ assignedTo: userId })
     const pendingTasks = await Task.countDocuments({ assignedTo: userId, status: "Pending" })
     const completedTasks = await Task.countDocuments({ assignedTo: userId, status: "In Progress" })
@@ -334,7 +337,7 @@ const getUserDashboardData = async (req, res) => {
     const taskPriorities = ["Low", "Medium", "High"]
     const taskPriorityLevelsRaw = await Task.aggregate([
       { $match: { assignedTo: userId } },
-      { $group: { _id: "$priority", count: { sum: 1 } } }
+      { $group: { _id: "$priority", count: { $sum: 1 } } }
     ])
 
     const taskPriorityLevels = taskPriorities.reduce((acc, priority) => {

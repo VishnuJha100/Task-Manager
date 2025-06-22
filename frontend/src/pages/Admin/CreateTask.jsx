@@ -94,6 +94,7 @@ const CreateTask = () => {
     }
     if(!taskData.dueDate){
       setError("Due Date is required.")
+      return
     }
 
     if(taskData.assignedTo?.length === 0){
@@ -141,14 +142,14 @@ const CreateTask = () => {
               <div className='col-span-6 md:col-span-4'>
                 <label className='text-xs font-medium text-slate-600'>Priority</label>
                 <SelectDropdown options={PRIORITY_DATA} value={taskData.priority} onChange={(value) => handleValueChange("priority", value)} placeholder="Select Priority" />
-              </div>
+              </div> 
               <div className='col-span-6 md:col-span-4'>
                 <label className='text-xs font-medium text-slate-600'>Due Date</label>
-                <input placeholder='Create App UI' className='form-input' value={taskData.dueDate} onChange={({ target }) => handleValueChange("dueDate", target.value)} type='date' />
+                <input placeholder='Create App UI' className='form-input' value={taskData.dueDate ?? ''} onChange={({ target }) => handleValueChange("dueDate", target.value)} type='date' />
               </div>
               <div className='col-span-12 md:col-span-3'>
                 <label className='text-xs font-medium text-slate-600'>Assign To</label>
-                <SelectUsers SelectedUsers={taskData.assignedTo} setSelectedUsers = {(value) => handleValueChange("assignedTo", value)} />
+                <SelectUsers selectedUsers={taskData.assignedTo} setSelectedUsers = {(value) => handleValueChange("assignedTo", value)} />
               </div>
             </div>
             <div className='mt-3'>

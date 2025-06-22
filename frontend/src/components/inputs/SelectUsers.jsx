@@ -49,7 +49,7 @@ const SelectUsers = ({selectedUsers, setSelectedUsers }) => {
       {selectedUserAvatars.length === 0 && (
         <button className='card-btn' onClick={() => setIsModalOpen(true)}><LuUsers className="text-sm" /> Add Members</button>
       )}
-      {selectedUserAvatars.length === 0 && (
+      {selectedUserAvatars.length > 0 && (
         <div className='cursor-pointer' onClick={() => setIsModalOpen(true)}>
             <AvatarGroup avatars={selectedUserAvatars} maxVisible={3} />
         </div>
