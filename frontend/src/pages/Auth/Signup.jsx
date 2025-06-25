@@ -57,6 +57,7 @@ const Signup = () => {
           name: fullName,
           email,
           password,
+          profileImageUrl: profileImageUrl,
           adminInviteToken
         })
 
