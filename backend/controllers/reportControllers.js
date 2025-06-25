@@ -24,7 +24,7 @@ const exportTasksReport = async (req, res) => {
         ]
 
         tasks.forEach((task) => {
-            const assignedTo = Task.assignedTo.map((user) => `${user.name} (${user.email})`).join(", ")
+            const assignedTo = task.assignedTo.map((user) => `${user.name} (${user.email})`).join(", ")
             worksheet.addRow({
                 _id: task._id,
                 title: task.title,
