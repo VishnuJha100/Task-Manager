@@ -1,21 +1,21 @@
 import { BrowserRouter as Router, Routes, Route, Outlet, Navigate } from "react-router-dom";
 
-import Login from "./pages/Auth/Login";
-import Signup from "./pages/Auth/Signup";
+import Login from "./pages/Auth/Login.jsx";
+import Signup from "./pages/Auth/Signup.jsx";
 
-import Dashboard from "./pages/Admin/Dashboard";
-import ManageTasks from "./pages/Admin/ManageTasks";
-import CreateTask from "./pages/Admin/CreateTask";
-import ManageUsers from "./pages/Admin/ManageUsers";
+import Dashboard from "./pages/Admin/Dashboard.jsx";
+import ManageTasks from "./pages/Admin/ManageTasks.jsx";
+import CreateTask from "./pages/Admin/CreateTask.jsx";
+import ManageUsers from "./pages/Admin/ManageUsers.jsx";
 
-import UserDashboard from "./pages/User/UserDashboard";
-import MyTasks from "./pages/User/MyTasks";
-import ViewTaskDetails from "./pages/User/ViewTaskDetails";
+import UserDashboard from "./pages/User/UserDashboard.jsx";
+import MyTasks from "./pages/User/MyTasks.jsx";
+import ViewTaskDetails from "./pages/User/ViewTaskDetails.jsx";
 
-import PrivateRoute from "./routes/PrivateRoute";
+import PrivateRoute from "./routes/PrivateRoute.jsx";
 import { useContext } from "react";
-import {UserContext} from "./context/UserContext";
-import  UserProvider  from "./context/UserContext"
+import {UserContext} from "./context/UserContext.jsx";
+import  UserProvider  from "./context/UserContext.jsx"
 import { Toaster } from "react-hot-toast";
 
 function App() {

@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react'
-import DashboardLayout from '../../components/layouts/DashboardLayout'
-import axiosInstance from '../../utils/axiosInstance'
-import { API_PATH } from '../../utils/apiPaths'
+import DashboardLayout from '../../components/layouts/DashboardLayout.jsx'
+import axiosInstance from '../../utils/axiosInstance.js'
+import { API_PATH } from '../../utils/apiPaths.js'
 import { LuFileSpreadsheet } from 'react-icons/lu'
-import UserCard from '../../components/cards/UserCard'
+import UserCard from '../../components/cards/UserCard.jsx'
 
 const ManageUsers = () => {
 

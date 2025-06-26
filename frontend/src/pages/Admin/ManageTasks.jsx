@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
-import DashboardLayout from "../../components/layouts/DashboardLayout";
+import DashboardLayout from "../../components/layouts/DashboardLayout.jsx";
 import { useNavigate } from "react-router-dom";
-import axiosInstance from "../../utils/axiosInstance";
-import { API_PATH } from "../../utils/apiPaths";
+import axiosInstance from "../../utils/axiosInstance.js";
+import { API_PATH } from "../../utils/apiPaths.js";
 import { LuFileSpreadsheet } from "react-icons/lu";
-import TaskStatusTabs from "../../components/TaskStatusTabs";
-import TaskCard from "../../components/cards/TaskCard";
+import TaskStatusTabs from "../../components/TaskStatusTabs.jsx";
+import TaskCard from "../../components/cards/TaskCard.jsx";
 import { toast } from 'react-hot-toast'
 
 const ManageTasks = () => {

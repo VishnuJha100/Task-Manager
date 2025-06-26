@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
-import axiosInstance from '../../utils/axiosInstance'
-import { API_PATH } from '../../utils/apiPaths'
-import DashboardLayout from '../../components/layouts/DashboardLayout'
+import axiosInstance from '../../utils/axiosInstance.js'
+import { API_PATH } from '../../utils/apiPaths.js'
+import DashboardLayout from '../../components/layouts/DashboardLayout.jsx'
 import moment from 'moment'
-import AvatarGroup from '../../components/AvatarGroup'
+import AvatarGroup from '../../components/AvatarGroup.jsx'
 import { LuSquareArrowOutUpRight } from 'react-icons/lu'
 
 const ViewTaskDetails = () => {

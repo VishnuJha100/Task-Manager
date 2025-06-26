@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react'
-import axiosInstance from '../../utils/axiosInstance'
-import { API_PATH } from '../../utils/apiPaths'
-import Modal from '../Modal'
-import AvatarGroup from '../AvatarGroup'
+import axiosInstance from '../../utils/axiosInstance.js'
+import { API_PATH } from '../../utils/apiPaths.js'
+import Modal from '../Modal.jsx'
+import AvatarGroup from '../AvatarGroup.jsx'
 import { LuUsers } from 'react-icons/lu';
 
 const SelectUsers = ({selectedUsers, setSelectedUsers }) => {
