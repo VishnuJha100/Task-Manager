@@ -43,6 +43,15 @@ const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
 app.use("/uploads", express.static(path.join(__dirname, "uploads")))
 
+const _dirname = path.resolve()
+if(process.env.NODE_ENV==="production"){
+  app.use(express.static(path.join(_dirname, "../frontend/dist")))
+
+  app.get("*", (req, res) => {
+    res.sendFile(path.join(_dirname, "../frontend", "dist", "index.html"))
+  })
+}
+
 
 // Start Server
 const PORT = process.env.PORT || 5000
