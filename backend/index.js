@@ -34,14 +34,14 @@ app.use('/api/users', userRoutes)
 app.use('/api/tasks', taskRoutes)
 app.use('/api/reports', reportRoutes)
 
+app.get('/', (req, res) => {
+  res.send("Server is running.")
+})
+
 // Server uploads folder
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
 app.use("/uploads", express.static(path.join(__dirname, "uploads")))
-
-app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, 'dist', 'index.html'));
-});
 
 
 // Start Server
