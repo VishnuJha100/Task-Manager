@@ -2,7 +2,7 @@
 
 Task Manager is a full-featured productivity web application built with the powerful **MERN Stack** (MongoDB, Express, React, Node.js). From managing daily tasks to tracking progress with intuitive UI and real-time feedback, this app helps users stay productive and focused.
 
-![Task Manager Banner](./Screenshot 2025-06-28 113141.png) <!-- Optional: Add screenshot or GIF -->
+![Task Manager Banner](./preview.png) <!-- Optional: Add screenshot or GIF -->
 
 ---
 
