@@ -1,59 +1,112 @@
-# 🗂️ Task Manager
+# ✅ Task Manager – Organize. Prioritize. Achieve.
 
-![GitHub repo size](https://img.shields.io/github/repo-size/VishnuJha100/Task-Manager?color=blue)
-![GitHub issues](https://img.shields.io/github/issues/VishnuJha100/Task-Manager)
-![GitHub forks](https://img.shields.io/github/forks/VishnuJha100/Task-Manager?style=social)
-![GitHub stars](https://img.shields.io/github/stars/VishnuJha100/Task-Manager?style=social)
+Task Manager is a full-featured productivity web application built with the powerful **MERN Stack** (MongoDB, Express, React, Node.js). From managing daily tasks to tracking progress with intuitive UI and real-time feedback, this app helps users stay productive and focused.
 
-> A fully responsive Task Manager App using the MERN (MongoDB, Express, React, Node.js) stack! This app allows users to manage tasks efficiently with an intuitive interface, create, update, and track tasks with due dates and priorities, automated status updates, and assign tasks to multiple users and track completion etc.
+![Task Manager Banner](./Screenshot 2025-06-28 113141.png) <!-- Optional: Add screenshot or GIF -->
 
 ---
 
-## 🌟 Demo
+## 🔥 Features
 
-![Task Manager Demo](./assets/demo.gif)
-
-> _A quick preview of the Task Manager in action._
-
----
-
-## 🚀 Functionalities Implemented
-
--  User Dashboard – View assigned tasks, track progress, and get task insights.
-- Task Management – Create, update, and track tasks with due dates and priorities.
--  Automated Status Updates – Task status changes automatically based on the checklist.
-- Team Collaboration – Assign tasks to multiple users and track completion.
-- Priority & Progress Tracking – Categorize tasks by priority and monitor completion levels.
-- Task Report Downloads – Export task data for analysis and tracking.
-- Attachments Support – Add and access task-related file links easily.
-- Mobile Responsive UI – Seamless experience on desktop, tablet, and mobile.
+- 🔐 **User Authentication** – Secure login & signup with JWT-based auth.
+- 📋 **Create, Read, Update, Delete (CRUD)** – Full control over your tasks.
+- 🎯 **Status Tracking** – Manage task states (Pending, In Progress, Completed).
+- 🗃️ **User Dashboard** – Personalized view of all your tasks.
+- 💾 **Persistent Storage** – MongoDB database integration.
+- 📷 **Profile Picture Upload** – Users can personalize their account.
+- 🔄 **Responsive UI** – Mobile-friendly, clean, and modern design.
+- 🌈 **Toast Notifications** – Smooth feedback for every action.
+- ⚙️ **Robust Backend** – Built with Express and follows REST API principles.
 
 ---
 
-## 🛠️ Tech Stack
+## 🚀 Getting Started
 
-- **Frontend:** React.js, Tailwind CSS
-- **State Management:** useState / Context API
-- **Backend:** Express.js
-- **Database** MongoDb
-- **Icons:** React Icons / Lucide
-- **Version Control:** Git + GitHub
-
----
-
-## 📦 Installation
-
-Clone the repo and install dependencies:
+### 1. Clone the Repository
 
 ```bash
 git clone https://github.com/VishnuJha100/Task-Manager.git
 cd Task-Manager
-npm install
-npm start
 ```
 
-## 📄 License
-This project is licensed under the MIT License.
+### 2. Setup the Backend
+```bash
+cd backend
+npm install
+```
 
-## 🙌 Acknowledgements
-Thanks to open-source libraries and the developer community that made this project possible.
+🔑 Create a .env file in /backend with the following:
+```ini
+PORT=8000
+MONGO_URI=your_mongodb_connection_string
+JWT_SECRET=your_jwt_secret
+```
+
+Then run:
+```bash
+npm run dev
+```
+
+### 3. Setup the Frontend
+```bash
+cd ../frontend
+npm install
+```
+
+🔑 Create a .env file in /frontend with the following:
+```ini
+VITE_BASE_URL=http://localhost:8000
+```
+
+Start the Frontend
+```bash
+npm run dev
+```
+
+## 🌐 Live Demo
+🔗 https://task-manager-863e.vercel.app/
+
+## 🧱 Project Structure
+```pgsql
+Task-Manager/
+├── backend/
+│   ├── controllers/
+│   ├── models/
+│   ├── routes/
+│   ├── middleware/
+│   └── server.js
+├── frontend/
+│   ├── src/
+│   │   ├── components/
+│   │   ├── pages/
+│   │   ├── assets/
+│   │   └── App.jsx
+│   ├── public/
+│   └── index.html
+└── README.md
+```
+
+## 📦 Tech Stack
+- Frontend: React, Vite, Tailwind CSS, Framer Motion, React Hot Toast
+- Backend: Node.js, Express.js
+- Database: MongoDB Atlas
+- Authentication: JWT + bcrypt
+- Image Upload: Multer + Cloudinary/local handling
+
+## ✨ Upcoming Features
+- 📆 Due Date and Reminders
+- 🧾 Task Categories/Labels
+- 📊 Analytics Dashboard
+- 🌙 Dark Mode
+- 🔐 Google OAuth Sign-in
+- 📁 File Attachments in Tasks
+
+## 🧠 How It Works
+- Users register or log in with secure credentials.
+- The app stores task data in MongoDB with user association.
+- Tasks are displayed dynamically with status filters.
+- Profile picture uploads handled with Multer.
+- Authenticated routes protect sensitive operations.
+
+## 📜 License
+MIT License © 2025 Vishnu Deb Jha
